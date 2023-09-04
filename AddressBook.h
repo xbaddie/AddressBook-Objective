@@ -19,7 +19,7 @@ class AddressBook
     vector <User> users;
 
     User enterDataOfNewUser();
-    int getIdofNewUser();
+    int getIdOfNewUser();
     bool doUserExist(string login);
     void writeUserToFile(User user);
     string changeFormatOfLineToFormatOdAddressBook(User user);

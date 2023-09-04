@@ -20,7 +20,7 @@ User AddressBook::enterDataOfNewUser()
 {
     User user;
 
-    user.setId(getIdofNewUser());
+    user.setId(getIdOfNewUser());
 
     string login;
     do
@@ -38,7 +38,7 @@ User AddressBook::enterDataOfNewUser()
     return user;
 }
 
-int AddressBook::getIdofNewUser()
+int AddressBook::getIdOfNewUser()
 {
     if (users.empty() == true)
         return 1;
