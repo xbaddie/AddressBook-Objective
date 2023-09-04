@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include<windows.h>
 
 #include "User.h"
 
@@ -11,9 +12,14 @@ class AddressBook
     int idOfLastUser;
     int idOfDeletedUser;
 
-    vector <User> Users;
+    vector <User> users;
+
+    User enterDataOfNewUser();
+    int getIdofNewUser();
+    bool doUserExist(string login);
 
 public:
     void registerUser();
+    void displayAllUsers();
 
 };
