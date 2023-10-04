@@ -21,10 +21,12 @@ class UserManager
     User enterDataOfNewUser();
     int getIdOfNewUser();
     bool doUserExist(string login);
+    FileManager textFile;
 
 public:
     void registerUser();
     void displayAllUsers();
+    void getUsersFromFile();
 };
 
 #endif

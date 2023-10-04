@@ -71,3 +71,8 @@ bool UserManager::doUserExist(string login)
     }
     return false;
 }
+
+void UserManager::getUsersFromFile()
+{
+    users = textFile.getUsersFromFile();
+}

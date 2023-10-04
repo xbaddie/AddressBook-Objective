@@ -49,3 +49,57 @@ string FileManager::changeFormatOfLineToFormatOfAddressBook(User user)
 
     return lineWithUserData;
 }
+
+vector <User> FileManager::getUsersFromFile()
+{
+    User user;
+    vector <User> users;
+    string dataOfSingleUserSeparatedWithVerticalLines = "";
+
+    textFile.open(nameOfFileWithUsers.c_str(), ios::in);
+
+    if (textFile.good() == true)
+    {
+        while (getline(textFile, dataOfSingleUserSeparatedWithVerticalLines))
+        {
+            user = getUserData(dataOfSingleUserSeparatedWithVerticalLines);
+            users.push_back(user);
+        }
+
+    }
+    textFile.close();
+    return users;
+}
+
+User FileManager::getUserData(string dataOfSingleUserSeparatedWithVerticalLines)
+{
+    User user;
+    string singleUserData = "";
+    int countOfSingleUserData = 1;
+
+    for (int characterPlace = 0; characterPlace < dataOfSingleUserSeparatedWithVerticalLines.length(); characterPlace++)
+    {
+        if (dataOfSingleUserSeparatedWithVerticalLines[characterPlace] != '|')
+        {
+            singleUserData += dataOfSingleUserSeparatedWithVerticalLines[characterPlace];
+        }
+        else
+        {
+            switch(countOfSingleUserData)
+            {
+            case 1:
+                user.setId(atoi(singleUserData.c_str()));
+                break;
+            case 2:
+                user.setLogin(singleUserData);
+                break;
+            case 3:
+                user.setPassword(singleUserData);
+                break;
+            }
+            singleUserData = "";
+            countOfSingleUserData++;
+        }
+    }
+    return user;
+}

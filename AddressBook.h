@@ -12,6 +12,7 @@ class AddressBook
     UserManager userManager;
 
 public:
+    AddressBook();
     void displayAllUsers();
     void registerUser();
 };
